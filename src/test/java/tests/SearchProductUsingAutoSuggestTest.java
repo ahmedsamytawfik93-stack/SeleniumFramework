@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import pages.ProductDetailsPage;
 import pages.SearchPage;
 
-public class SaerchProductUsingAutoSuggestTest extends TestBase{
+public class SearchProductUsingAutoSuggestTest extends TestBase{
 	String productName = "Apple MacBook Pro";
 	SearchPage searchObject;
 	ProductDetailsPage productDetailsObject;
