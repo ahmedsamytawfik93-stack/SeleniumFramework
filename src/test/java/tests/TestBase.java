@@ -92,8 +92,13 @@ public class TestBase extends AbstractTestNGCucumberTests{
 			// Set path to your IEDriver
 	        System.setProperty("webdriver.ie.driver", System.getProperty("user.dir") +"/Drivers/IEDriverServer.exe");
 			driver = new InternetExplorerDriver(ieOption());
+		} else if(browserName.equalsIgnoreCase("chrome-headless")) {
+			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +"/Drivers/chromedriver.exe");
+			ChromeOptions option = new ChromeOptions();
+			option.addArguments("--headless");
+			option.addArguments("--window-size=1920,1080");
+			driver = new ChromeDriver(option);
 		}
-
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(120));
 		driver.navigate().to("https://demo.nopcommerce.com/");
