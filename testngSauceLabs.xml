@@ -5,7 +5,7 @@
   	<parameter name="platform" value="OS X 10"/>
     <classes>
       <class name="tests.UserRegistrationTestGrid"/>
-      <class name="tests.MyAccountGrid"/>
+      <class name="tests.MyAccountTestGrid"/>
     </classes>
   </test>
   <test name="Firefox Regression Test">
