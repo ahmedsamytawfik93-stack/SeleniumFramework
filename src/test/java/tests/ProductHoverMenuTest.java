@@ -12,6 +12,8 @@ public class ProductHoverMenuTest extends TestBase{
 	public void userCanSelectSubCategoryFromMainMenu() {
 		homeObject = new HomePage(driver);
 		homeObject.selectNotebooksMenu();
-		Assert.assertTrue(driver.getCurrentUrl().contains("notebooks"));
+        String currentUrl = driver.getCurrentUrl();
+        Assert.assertNotNull(currentUrl, "Current URL is null");
+		Assert.assertTrue(currentUrl.contains("notebooks"));
 	}
 }

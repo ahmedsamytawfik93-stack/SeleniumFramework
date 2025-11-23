@@ -31,7 +31,7 @@ public class ChangeCurrencyTest extends TestBase{
 			Assert.assertTrue(productDetailsObject.productNameBreadCrumb.getText().contains(productName));
 			Assert.assertTrue(productDetailsObject.productPriceLbl.getText().contains("€"));
 		} catch(Exception e) {
-			System.out.println("Error occured " + e.getMessage());
+			System.out.println("Error occurred " + e.getMessage());
 		}
 	}
 }

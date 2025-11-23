@@ -13,7 +13,7 @@ import pages.HomePage;
 import pages.LoginPage;
 import pages.UserRegistrationPage;
 
-public class UserRegistrationTestWithDDTAndCSV extends TestBase{
+public class UserRegistrationWithDDTAndCSVTest extends TestBase{
 	HomePage homeObject;
 	UserRegistrationPage registerObject;
 	LoginPage loginObject;
@@ -51,7 +51,7 @@ public class UserRegistrationTestWithDDTAndCSV extends TestBase{
 			loginObject = new LoginPage(driver);
 			loginObject.userLogin(email, password);
 			
-			Assert.assertTrue(registerObject.logutLink.getText().contains("Log out"));
+			Assert.assertTrue(registerObject.logoutLink.getText().contains("Log out"));
 			
 			// User Logout Again
 			registerObject.userLogout();

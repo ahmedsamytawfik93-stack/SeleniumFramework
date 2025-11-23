@@ -40,16 +40,16 @@ public class MyAccountTest extends TestBase{
 	}
 	
 	@Test(dependsOnMethods = {"registeredUserCanChangePassword"})
-	public void registeredUserCanLogot() {
+	public void registeredUserCanLogout() {
 		registerObject.userLogout();
 	}
 	
-	@Test(dependsOnMethods = {"registeredUserCanLogot"})
+	@Test(dependsOnMethods = {"registeredUserCanLogout"})
 	public void registeredUserCanLogin() {
 		homeObject.openLoginPage();
 		loginObject = new LoginPage(driver);
 		loginObject.userLogin(email, newPassword);
 		
-		Assert.assertTrue(registerObject.logutLink.getText().contains("Log out"));
+		Assert.assertTrue(registerObject.logoutLink.getText().contains("Log out"));
 	}
 }

@@ -46,7 +46,7 @@ public class E2ETests extends TestBase{
 		cartObject.openCheckoutPage();
 		checkoutObject.guestUserCanAddNameAndEmailToOrder("test", "user", "ahmed22222@test.com");
 		checkoutObject.userCanFillBillingAddressForm("Egypt", "Cairo", "test address", "123456", "32445566677");
-		checkoutObject.userCanChooseshippingMethod();
+		checkoutObject.userCanChooseShippingMethod();
 		checkoutObject.userCanChoosePaymentMethod();
 		checkoutObject.userCanConfirmPaymentInfo();
 		Assert.assertTrue(checkoutObject.productName.isDisplayed());

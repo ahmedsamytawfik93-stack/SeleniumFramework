@@ -16,7 +16,7 @@ public class SearchProductTest extends TestBase{
 	public void userCanSearchForProduct() {
 		searchObject = new SearchPage(driver);
 		productDetailsObject = new ProductDetailsPage(driver);
-		searchObject.productsearch(productName);
+		searchObject.productSearch(productName);
 		searchObject.openProductDetailsPage();
 		Assert.assertTrue(productDetailsObject.productNameBreadCrumb.getText().contains(productName));
 	}

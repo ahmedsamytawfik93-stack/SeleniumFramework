@@ -7,7 +7,7 @@ import pages.HomePage;
 import pages.LoginPage;
 import pages.UserRegistrationPage;
 
-public class UserRegistrationTestGrid extends TestBaseGrid{
+public class UserRegistrationGridTest extends TestBaseGrid{
 	HomePage homeObject;
 	UserRegistrationPage registerObject;
 	LoginPage loginObject;
@@ -24,16 +24,16 @@ public class UserRegistrationTestGrid extends TestBaseGrid{
 	}
 	
 	@Test(dependsOnMethods = {"userCanRegisterSuccessfully"})
-	public void registeredUserCanLogot() {
+	public void registeredUserCanLogout() {
 		registerObject.userLogout();
 	}
 	
-	@Test(dependsOnMethods = {"registeredUserCanLogot"})
+	@Test(dependsOnMethods = {"registeredUserCanLogout"})
 	public void registeredUserCanLogin() {
 		homeObject.openLoginPage();
 		loginObject = new LoginPage(getDriver());
 		loginObject.userLogin("testmail6@gmail.com", "12345678");
 		
-		Assert.assertTrue(registerObject.logutLink.getText().contains("Log out"));
+		Assert.assertTrue(registerObject.logoutLink.getText().contains("Log out"));
 	}
 }

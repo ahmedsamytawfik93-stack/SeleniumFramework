@@ -4,25 +4,20 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import pages.CheckoutPage;
-import pages.HomePage;
 import pages.OrderDetailsPage;
 import pages.ProductDetailsPage;
 import pages.SearchPage;
 import pages.ShoppingCartPage;
-import pages.UserRegistrationPage;
 
-public class GuestUserCheckoutProduct extends TestBase{
-	HomePage homeObject;
+public class GuestUserCheckoutProductTest extends TestBase{
 	SearchPage searchObject;
 	CheckoutPage checkoutObject;
 	ShoppingCartPage shoppingCartObject;
 	OrderDetailsPage orderDetailsObject;
 	ProductDetailsPage productDetailsObject;
-	UserRegistrationPage userRegistrationObject;
 	
 	String lastName = "Morsy";
 	String firstName = "Ahmed";
-	String password = "123456";
 	String email = "testmail6@gmail.com";
 	String productName = "Apple MacBook Pro";
 	String country = "Egypt";
@@ -38,11 +33,11 @@ public class GuestUserCheckoutProduct extends TestBase{
 			searchObject = new SearchPage(driver);
 			productDetailsObject = new ProductDetailsPage(driver);
 			
-			searchObject.productsearch(productName);
+			searchObject.productSearch(productName);
 			searchObject.openProductDetailsPage();
 			Assert.assertTrue(productDetailsObject.productNameBreadCrumb.getText().contains(productName));
 		} catch(Exception e) {
-			System.out.println("Eroor occurred" + e.getMessage());
+			System.out.println("ErRor occurred" + e.getMessage());
 		}
 	}
 	
@@ -66,7 +61,7 @@ public class GuestUserCheckoutProduct extends TestBase{
 		shoppingCartObject.openCheckoutPage();
 		checkoutObject.guestUserCanAddNameAndEmailToOrder(firstName, lastName, email);
 		checkoutObject.userCanFillBillingAddressForm(country, city, address, postcode, phone);
-		checkoutObject.userCanChooseshippingMethod();
+		checkoutObject.userCanChooseShippingMethod();
 		checkoutObject.userCanChoosePaymentMethod();
 		checkoutObject.userCanConfirmPaymentInfo();
 		

@@ -25,8 +25,8 @@ public class ProductReviewPage extends PageBase{
 	@FindBy(css="div.result")
 	public WebElement reviewNotification;
 	
-	public void addProductReview(String reviewTiltle, String reviewMessage) {
-		setTextElementText(reviewTitleTxtBox, reviewTiltle);
+	public void addProductReview(String reviewTitle, String reviewMessage) {
+		setTextElementText(reviewTitleTxtBox, reviewTitle);
 		setTextElementText(reviewTextTxtBox, reviewMessage);
 		clickButton(Rating4RdoBtn);
 		clickButton(submitReviewBtn);

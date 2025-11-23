@@ -11,7 +11,7 @@ import pages.SearchPage;
 import pages.ShoppingCartPage;
 import pages.UserRegistrationPage;
 
-public class RegisteredUserCheckoutProduct extends TestBase{
+public class RegisteredUserCheckoutProductTest extends TestBase{
 	HomePage homeObject;
 	SearchPage searchObject;
 	CheckoutPage checkoutObject;
@@ -50,11 +50,11 @@ public class RegisteredUserCheckoutProduct extends TestBase{
 			searchObject = new SearchPage(driver);
 			productDetailsObject = new ProductDetailsPage(driver);
 			
-			searchObject.productsearch(productName);
+			searchObject.productSearch(productName);
 			searchObject.openProductDetailsPage();
 			Assert.assertTrue(productDetailsObject.productNameBreadCrumb.getText().contains(productName));
 		} catch(Exception e) {
-			System.out.println("Eroor occurred" + e.getMessage());
+			System.out.println("Error occurred" + e.getMessage());
 		}
 	}
 	
@@ -77,7 +77,7 @@ public class RegisteredUserCheckoutProduct extends TestBase{
 		
 		shoppingCartObject.openCheckoutPage();
 		checkoutObject.userCanFillBillingAddressForm(country, city, address, postcode, phone);
-		checkoutObject.userCanChooseshippingMethod();
+		checkoutObject.userCanChooseShippingMethod();
 		checkoutObject.userCanChoosePaymentMethod();
 		checkoutObject.userCanConfirmPaymentInfo();
 		
@@ -100,7 +100,7 @@ public class RegisteredUserCheckoutProduct extends TestBase{
 	
 	// 6. User Logout
 	@Test(priority =6)
-	public void registeredUserCanLogot() {
+	public void registeredUserCanLogout() {
 		userRegistrationObject.userLogout();
 	}
 }

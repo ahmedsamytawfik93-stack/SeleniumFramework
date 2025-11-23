@@ -21,7 +21,7 @@ public class TestBaseSauceLabs {
 
 	// SauceLabs Configurations
 	public static final String USERNAME = LoadProperties.sauceLabsData.getProperty("username");
-	public static final String ACCESS_KEY = LoadProperties.sauceLabsData.getProperty("accesskey");
+	public static final String ACCESS_KEY = LoadProperties.sauceLabsData.getProperty("accessKey");
 	public static final String SAUCE_URL = "http://"+ USERNAME+ ":"+ ACCESS_KEY+ ":"+ LoadProperties.sauceLabsData.getProperty("seleniumURL");
 	
     protected static ThreadLocal<RemoteWebDriver> driver = new ThreadLocal<>();

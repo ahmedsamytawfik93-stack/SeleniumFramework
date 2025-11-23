@@ -2,33 +2,37 @@ package tests;
 
 import java.io.IOException;
 
-import org.json.simple.parser.ParseException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import data.JsonDataReader;
+//import com.github.javafaker.Faker;
+
 import pages.HomePage;
 import pages.LoginPage;
 import pages.UserRegistrationPage;
 
-public class UserRegistrationTestWithDDTAndJSON extends TestBase{
+public class UserRegistrationWithDDTAndJavaFakerTest extends TestBase{
 	HomePage homeObject;
 	UserRegistrationPage registerObject;
 	LoginPage loginObject;
 	
+	//Faker fakeData = new Faker();
+	
+	//String firstname = fakeData.name().firstName();
+	//String lastname = fakeData.name().lastName();
+	//String email = fakeData.internet().emailAddress();
+	//String password = fakeData.number().digits(8).toString();
+	
 	@Test(priority = 1, alwaysRun = true)
-	public void userCanRegisterSuccessfully() throws IOException, ParseException {
-		// Read Data from JSON file
-		JsonDataReader jsonReader = new JsonDataReader();
-		jsonReader.jsonReader();
-		
+	public void userCanRegisterSuccessfully() throws  IOException {
+			
 		// User Register
 		homeObject = new HomePage(driver);
 		homeObject.openRegistrationPage();
 
 		registerObject = new UserRegistrationPage(driver);
-		registerObject.userRegistration(jsonReader.firstname, jsonReader.lastname, jsonReader.email, jsonReader.password);
-			
+		//registerObject.userRegistration(firstname, lastname, email, password);
+		
 		Assert.assertTrue(registerObject.successMessage.getText().contains("Your Registration completed"));
 			
 		// User Logout
@@ -37,9 +41,9 @@ public class UserRegistrationTestWithDDTAndJSON extends TestBase{
 		// User Login Again
 		homeObject.openLoginPage();
 		loginObject = new LoginPage(driver);
-		loginObject.userLogin(jsonReader.email, jsonReader.password);
+		//loginObject.userLogin(email, password);
 			
-		Assert.assertTrue(registerObject.logutLink.getText().contains("Log out"));
+		Assert.assertTrue(registerObject.logoutLink.getText().contains("Log out"));
 			
 		// User Logout Again
 		registerObject.userLogout();

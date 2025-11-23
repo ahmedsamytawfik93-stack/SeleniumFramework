@@ -12,7 +12,7 @@ public class LoginPage extends PageBase{
 	
 	@FindBy(id="Email")
 	WebElement emailTxtBox;
-	
+
 	@FindBy(id="Password")
 	WebElement passwordTxtBox;
 	
@@ -21,7 +21,7 @@ public class LoginPage extends PageBase{
 	
 	public void userLogin(String email ,String password) {
 		setTextElementText(emailTxtBox, email);
-		setTextElementText(emailTxtBox, password);
-		clickButton(emailTxtBox);
+		setTextElementText(passwordTxtBox, password);
+		clickButton(loginBtn);
 	}
 }

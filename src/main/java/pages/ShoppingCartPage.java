@@ -13,9 +13,6 @@ public class ShoppingCartPage extends PageBase{
 	@FindBy(name="removefromcart")
 	WebElement removeBtn;
 	
-	@FindBy(name="updatecart")
-	WebElement updateCartBtn;
-	
 	@FindBy(css="input.qty-input valid")
 	WebElement quantityTxt;
 	
@@ -23,7 +20,7 @@ public class ShoppingCartPage extends PageBase{
 	public WebElement totalLbl;
 	
 	@FindBy(id="termsofservice")
-	WebElement termsOfserviceCheckBox;
+	WebElement termsOfServiceCheckBox;
 	
 	@FindBy(id="checkout")
 	WebElement checkoutBtn;
@@ -38,9 +35,9 @@ public class ShoppingCartPage extends PageBase{
 	}
 	
 	public void checkTermsOfService() {
-		clickButton(termsOfserviceCheckBox);
+		clickButton(termsOfServiceCheckBox);
 	}
-	
+
 	public void openCheckoutPage() {
 		clickButton(checkoutBtn);
 	}

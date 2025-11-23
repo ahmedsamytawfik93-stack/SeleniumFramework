@@ -8,6 +8,6 @@ And I entered "<firstname>", "<lastname>", "<email>", "<password>"
 Then The registration page displayed successfully
 
 Examples:
-	| firstname | lastename | email | password |
+	| firstname | lastname | email | password |
 	| ahmed | mohamed | ahmed@test.com | 12345678 |
-	| Moataz | aHMED | TEST@user.com | 3521487 |
+	| Moat | Ahmed | TEST@user.com | 3521487 |

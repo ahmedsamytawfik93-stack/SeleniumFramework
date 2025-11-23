@@ -3,20 +3,16 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import pages.ContactUsPage;
-import pages.EmailaFriendPage;
+import pages.EmailFriendPage;
 import pages.HomePage;
-import pages.LoginPage;
 import pages.ProductDetailsPage;
 import pages.SearchPage;
 import pages.UserRegistrationPage;
 
 public class EmailFriendTest extends TestBase {
 	HomePage homeObject;
-	LoginPage loginObject;
 	SearchPage searchObject;
-	EmailaFriendPage emailObject;
-	ContactUsPage contactUsObject;
+	EmailFriendPage emailObject;
 	UserRegistrationPage registerObject;
 	ProductDetailsPage productDetailsObject;
 	
@@ -45,7 +41,7 @@ public class EmailFriendTest extends TestBase {
 	public void userCanSearchForProduct() {
 		searchObject = new SearchPage(driver);
 		productDetailsObject = new ProductDetailsPage(driver);
-		searchObject.productsearch(productName);
+		searchObject.productSearch(productName);
 		searchObject.openProductDetailsPage();
 		Assert.assertTrue(productDetailsObject.productNameBreadCrumb.getText().contains(productName));
 	}
@@ -54,14 +50,14 @@ public class EmailFriendTest extends TestBase {
 	@Test(priority = 3)
 	public void RegisteredUserCanSendEmailToFriend() {
 		productDetailsObject.openSendEmail();
-		emailObject = new EmailaFriendPage(driver);
+		emailObject = new EmailFriendPage(driver);
 		emailObject.sendEmail(friendEmail, message);
 		Assert.assertTrue(emailObject.messageNotification.getText().contains("Your message has been sent."));
 	}
 	
 	// 4. User Logout
 	@Test(priority = 4)
-	public void registeredUserCanLogot() {
+	public void registeredUserCanLogoUt() {
 		registerObject.userLogout();
 	}
 }

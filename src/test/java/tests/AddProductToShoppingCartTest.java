@@ -19,7 +19,7 @@ public class AddProductToShoppingCartTest extends TestBase{
 		searchObject = new SearchPage(driver);
 		productDetailsObject = new ProductDetailsPage(driver);
 			
-		searchObject.productsearch(productName);
+		searchObject.productSearch(productName);
 		searchObject.openProductDetailsPage();
 		Assert.assertTrue(productDetailsObject.productNameBreadCrumb.getText().contains(productName));
 	}

@@ -8,12 +8,12 @@ import pages.HomePage;
 import pages.LoginPage;
 import pages.UserRegistrationPage;
 
-public class UserRegistrationTestWithDDTAndPropertiesFile extends TestBase{
+public class UserRegistrationWithDDTAndPropertiesFileTest extends TestBase{
 	HomePage homeObject;
 	UserRegistrationPage registerObject;
 	LoginPage loginObject;
-	String firstnamen = LoadProperties.userData.getProperty("firstname");
-	String lastnamen = LoadProperties.userData.getProperty("lastname");
+	String firstname = LoadProperties.userData.getProperty("firstname");
+	String lastname = LoadProperties.userData.getProperty("lastname");
 	String email = LoadProperties.userData.getProperty("email");
 	String password = LoadProperties.userData.getProperty("password");
 	
@@ -23,22 +23,22 @@ public class UserRegistrationTestWithDDTAndPropertiesFile extends TestBase{
 		homeObject.openRegistrationPage();
 
 		registerObject = new UserRegistrationPage(driver);
-		registerObject.userRegistration(firstnamen, lastnamen, email, password);
+		registerObject.userRegistration(firstname, lastname, email, password);
 		
 		Assert.assertTrue(registerObject.successMessage.getText().contains("Your Registration completed"));
 	}
 	
 	@Test(dependsOnMethods = {"userCanRegisterSuccessfully"})
-	public void registeredUserCanLogot() {
+	public void registeredUserCanLogout() {
 		registerObject.userLogout();
 	}
 	
-	@Test(dependsOnMethods = {"registeredUserCanLogot"})
+	@Test(dependsOnMethods = {"registeredUserCanLogout"})
 	public void registeredUserCanLogin() {
 		homeObject.openLoginPage();
 		loginObject = new LoginPage(driver);
 		loginObject.userLogin(email, password);
 		
-		Assert.assertTrue(registerObject.logutLink.getText().contains("Log out"));
+		Assert.assertTrue(registerObject.logoutLink.getText().contains("Log out"));
 	}
 }

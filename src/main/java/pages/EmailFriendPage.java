@@ -4,9 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class EmailaFriendPage extends PageBase{
+public class EmailFriendPage extends PageBase{
 
-	public EmailaFriendPage(WebDriver driver) {
+	public EmailFriendPage(WebDriver driver) {
 		super(driver);
 	}
 	

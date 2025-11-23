@@ -10,14 +10,8 @@ public class UserRegistrationPage extends PageBase{
 		super(driver);
 	}
 	
-	@FindBy(id="gender")
-	WebElement genderdoBtn;
-	
 	@FindBy(id="gender-male")
 	WebElement genderMaleRdoBtn;
-	
-	@FindBy(id="gender-female")
-	WebElement genderFemaleRdoBtn;
 	
 	@FindBy(id="FirstName")
 	WebElement firstNameTxtBox;
@@ -27,12 +21,6 @@ public class UserRegistrationPage extends PageBase{
 	
 	@FindBy(id="Email")
 	WebElement emailTxtBox;
-	
-	@FindBy(id="Company")
-	WebElement CompanyTxtBox;
-	
-	@FindBy(id="NewsLetterSubscriptions_0__IsActive")
-	WebElement newsLetterSubscriptionsRdoBtn;
 	
 	@FindBy(id="Password")
 	WebElement passwordTxtBox;
@@ -47,7 +35,7 @@ public class UserRegistrationPage extends PageBase{
 	public WebElement successMessage;
 	
 	@FindBy(linkText="Log out")
-	public WebElement logutLink;
+	public WebElement logoutLink;
 	
 	@FindBy(linkText="My account")
 	WebElement myAccountLink;
@@ -63,7 +51,7 @@ public class UserRegistrationPage extends PageBase{
 	}
 	
 	public void userLogout() {
-		clickButton(logutLink);
+		clickButton(logoutLink);
 	}
 	
 	public void openMyAccountPage() {

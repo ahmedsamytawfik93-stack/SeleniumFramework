@@ -24,16 +24,16 @@ public class UserRegistrationTest extends TestBase{
 	}
 	
 	@Test(dependsOnMethods = {"userCanRegisterSuccessfully"})
-	public void registeredUserCanLogot() {
+	public void registeredUserCanLogout() {
 		registerObject.userLogout();
 	}
 	
-	@Test(dependsOnMethods = {"registeredUserCanLogot"})
+	@Test(dependsOnMethods = {"registeredUserCanLogout"})
 	public void registeredUserCanLogin() {
 		homeObject.openLoginPage();
 		loginObject = new LoginPage(driver);
 		loginObject.userLogin("testmail6@gmail.com", "12345678");
 		
-		Assert.assertTrue(registerObject.logutLink.getText().contains("Log out"));
+		Assert.assertTrue(registerObject.logoutLink.getText().contains("Log out"));
 	}
 }

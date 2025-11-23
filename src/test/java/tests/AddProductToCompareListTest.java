@@ -12,8 +12,8 @@ public class AddProductToCompareListTest extends TestBase{
 	ProductDetailsPage productDetailsObject;
 	ComparePage compareObject;
 
-	String firstproductName = "Apple MacBook Pro";
-	String secondproductName = "Asus";
+	String firstProductName = "Apple MacBook Pro";
+	String secondProductName = "Asus";
 	
 	// 1. Search For First Product And Add it To CompareList
 	@Test(priority = 1)
@@ -21,9 +21,9 @@ public class AddProductToCompareListTest extends TestBase{
 		searchObject = new SearchPage(driver);
 		productDetailsObject = new ProductDetailsPage(driver);
 		
-		searchObject.productsearch(firstproductName);
+		searchObject.productSearch(firstProductName);
 		searchObject.openProductDetailsPage();
-		Assert.assertTrue(productDetailsObject.productNameBreadCrumb.getText().contains(firstproductName));
+		Assert.assertTrue(productDetailsObject.productNameBreadCrumb.getText().contains(firstProductName));
 		
 		productDetailsObject.addProductToCompare();
 	}
@@ -34,9 +34,9 @@ public class AddProductToCompareListTest extends TestBase{
 		searchObject = new SearchPage(driver);
 		productDetailsObject = new ProductDetailsPage(driver);
 		
-		searchObject.productsearch(secondproductName);
+		searchObject.productSearch(secondProductName);
 		searchObject.openProductDetailsPage();
-		Assert.assertTrue(productDetailsObject.productNameBreadCrumb.getText().contains(secondproductName));
+		Assert.assertTrue(productDetailsObject.productNameBreadCrumb.getText().contains(secondProductName));
 		
 		productDetailsObject.addProductToCompare();
 	}

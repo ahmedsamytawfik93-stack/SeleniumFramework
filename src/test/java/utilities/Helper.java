@@ -13,15 +13,14 @@ import org.openqa.selenium.WebDriver;
 public class Helper {
 	// Method to take screenshot when test case fail
 	public static void captureScreenshot(WebDriver driver, String screenshotName) {
-		Path dest = Paths.get("./Screenshots", screenshotName +".png");
+		Path destination = Paths.get("./Screenshots", screenshotName +".png");
 		try {
-			Files.createDirectories(dest.getParent());
-			FileOutputStream out = new FileOutputStream(dest.toString());
+			Files.createDirectories(destination.getParent());
+			FileOutputStream out = new FileOutputStream(destination.toString());
 			out.write(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES));
 			out.close();
 		} catch (IOException e) {
 			System.out.println("Exception while Taking screenshot" +e.getMessage());
-			e.printStackTrace();
 		}
 	}
 }

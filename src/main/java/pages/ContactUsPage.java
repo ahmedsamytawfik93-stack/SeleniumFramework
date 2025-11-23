@@ -25,8 +25,8 @@ public class ContactUsPage extends PageBase{
 	@FindBy(css="div.result")
 	public WebElement successMessage;
 	
-	public void contactUs(String fullname, String email, String message) {
-		setTextElementText(fullNameTxt, fullname);
+	public void contactUs(String fullName, String email, String message) {
+		setTextElementText(fullNameTxt, fullName);
 		setTextElementText(emailTxt, email);
 		setTextElementText(enquiryTxt, message);
 		clickButton(submitBtn);

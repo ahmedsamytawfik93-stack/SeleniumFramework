@@ -18,9 +18,6 @@ public class ComparePage extends PageBase{
 	@FindBy(css="div.no-data")
 	public WebElement noDataLbl;
 	
-	@FindBy(css="table.compare-products-table")
-	WebElement compareTable;
-	
 	@FindBy(tagName="tr")
 	public List<WebElement> allRows;
 	

@@ -11,9 +11,6 @@ public class CheckoutPage extends PageBase{
 		super(driver);
 	}
 	
-	@FindBy(id="ShipToSameAddress")
-	WebElement shipToSameAddressCheckBox;
-	
 	@FindBy(id="BillingNewAddress_FirstName")
 	WebElement firstNameTxtBox;
 	
@@ -23,14 +20,8 @@ public class CheckoutPage extends PageBase{
 	@FindBy(id="BillingNewAddress_Email")
 	WebElement emailTxtBox;
 	
-	@FindBy(id="BillingNewAddress_Company")
-	WebElement companyTxtBox;
-	
 	@FindBy(id="BillingNewAddress_CountryId")
 	WebElement countryDDL;
-	
-	@FindBy(id="BillingNewAddress_StateProvinceId")
-	WebElement stateDDL;
 	
 	@FindBy(id="BillingNewAddress_City")
 	WebElement cityTxtBox;
@@ -38,17 +29,11 @@ public class CheckoutPage extends PageBase{
 	@FindBy(id="BillingNewAddress_Address1")
 	WebElement address1TxtBox;
 	
-	@FindBy(id="BillingNewAddress.Address2")
-	WebElement address2TxtBox;
-	
 	@FindBy(id="BillingNewAddress_ZipPostalCode")
 	WebElement zipPostalCodeTxtBox;
 	
 	@FindBy(id="BillingNewAddress_PhoneNumber")
 	WebElement phoneNumberTxtBox;
-	
-	@FindBy(id="BillingNewAddress_FaxNumber")
-	WebElement faxNumberTxtBox;
 	
 	@FindBy(css="button-1.new-address-next-step-button")
 	WebElement billingAddressContinueBtn;
@@ -56,23 +41,11 @@ public class CheckoutPage extends PageBase{
 	@FindBy(id="shippingoption_0")
 	WebElement shippingOption0Check;
 	
-	@FindBy(id="shippingoption_1")
-	WebElement shippingOption1Check;
-	
-	@FindBy(id="shippingoption_2")
-	WebElement shippingOption2Check;
-	
-	@FindBy(linkText="Back")
-	WebElement BackBtn;
-	
 	@FindBy(css="button-1.shipping-method-next-step-button")
 	WebElement shippingMethodContinueBtn;
 	
 	@FindBy(id="paymentmethod_0")
 	WebElement paymentMethod0Check;
-	
-	@FindBy(id="paymentmethod_1")
-	WebElement paymentMethod1Check;
 	
 	@FindBy(css="button-1.payment-info-next-step-button")
 	WebElement paymentInfoContinueBtn;
@@ -94,9 +67,6 @@ public class CheckoutPage extends PageBase{
 	
 	@FindBy(linkText="Click here for order details.")
 	WebElement orderDetailLink;
-	
-	@FindBy(css="button-1.order-completed-continue-button")
-	WebElement orderCompletedContinueBtn;
 
 	public void guestUserCanAddNameAndEmailToOrder(String firstName, String lastName, String email) {
 		// Billing Address To Be Filled Only By Guest
@@ -116,7 +86,7 @@ public class CheckoutPage extends PageBase{
 		clickButton(billingAddressContinueBtn);
 	}
 	
-	public void userCanChooseshippingMethod() {	
+	public void userCanChooseShippingMethod() {
 		// Shipping Method
 		clickButton(shippingOption0Check);
 		clickButton(shippingMethodContinueBtn);

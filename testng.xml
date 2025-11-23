@@ -11,10 +11,10 @@
       <class name="tests.ChangeCurrencyTest"/>
       <class name="tests.ContactUsTest"/>
       <class name="tests.EmailFriendTest"/>
-      <class name="tests.GuestUserCheckoutProduct"/>
+      <class name="tests.GuestUserCheckoutProductTest"/>
       <class name="tests.MyAccountTest"/>
       <class name="tests.ProductHoverMenuTest"/>
-      <class name="tests.RegisteredUserCheckoutProduct"/>
+      <class name="tests.RegisteredUserCheckoutProductTest"/>
       <class name="tests.SearchProductUsingAutoSuggestTest"/>
       <class name="tests.SearchProductTest"/>
     </classes>

@@ -3,10 +3,7 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import pages.ContactUsPage;
-import pages.EmailaFriendPage;
 import pages.HomePage;
-import pages.LoginPage;
 import pages.ProductDetailsPage;
 import pages.ProductReviewPage;
 import pages.SearchPage;
@@ -14,10 +11,7 @@ import pages.UserRegistrationPage;
 
 public class AddProductReviewTest extends TestBase{
 	HomePage homeObject;
-	LoginPage loginObject;
 	SearchPage searchObject;
-	EmailaFriendPage emailObject;
-	ContactUsPage contactUsObject;
 	UserRegistrationPage registerObject;
 	ProductReviewPage productReviewObject;
 	ProductDetailsPage productDetailsObject;
@@ -26,10 +20,8 @@ public class AddProductReviewTest extends TestBase{
 	String lastName = "Morsy";
 	String password = "123456";
 	String personalEmail = "testmail6@gmail.com";
-	String friendEmail = "test@gmail.com";
-	String message = "Hello my friend, check this product"; 
 	String productName = "Apple MacBook Pro";
-	String reviewTilte = "New Review";
+	String reviewTitle = "New Review";
 	String reviewMessage = "The product is very good";
 	
 	// 1. User Registration
@@ -49,7 +41,7 @@ public class AddProductReviewTest extends TestBase{
 	public void userCanSearchForProduct() {
 		searchObject = new SearchPage(driver);
 		productDetailsObject = new ProductDetailsPage(driver);
-		searchObject.productsearch(productName);
+		searchObject.productSearch(productName);
 		searchObject.openProductDetailsPage();
 		Assert.assertTrue(productDetailsObject.productNameBreadCrumb.getText().contains(productName));
 	}
@@ -59,13 +51,13 @@ public class AddProductReviewTest extends TestBase{
 	public void registeredUserCanAddReview() {
 		productDetailsObject.openReviewForm();
 		productReviewObject = new ProductReviewPage(driver);
-		productReviewObject.addProductReview(reviewTilte, reviewMessage);
+		productReviewObject.addProductReview(reviewTitle, reviewMessage);
 		Assert.assertTrue(productReviewObject.reviewNotification.getText().contains("Product review is successfully added"));
 	}
 	
 	// 4. User Logout
 	@Test(priority = 4)
-	public void registeredUserCanLogot() {
+	public void registeredUserCanLogout() {
 		registerObject.userLogout();
 	}
 }

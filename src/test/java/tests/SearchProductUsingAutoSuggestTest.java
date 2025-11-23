@@ -19,7 +19,7 @@ public class SearchProductUsingAutoSuggestTest extends TestBase{
 			searchObject.productSearchUsingAutoSuggest("MacB");
 			Assert.assertTrue(productDetailsObject.productNameBreadCrumb.getText().contains(productName));
 		} catch(Exception e) {
-			System.out.println("Error occured " + e.getMessage());
+			System.out.println("Error occurred " + e.getMessage());
 		}
 	}
 }

@@ -1,6 +1,5 @@
 package pages;
 
-import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.WebDriver;
@@ -14,7 +13,7 @@ public class SearchPage extends PageBase{
 	}
 	
 	@FindBy(id="small-searchterms")
-	WebElement searchTxtBox;
+	WebElement searchTextBox;
 	
 	@FindBy(css="button.button-1.search-box-button")
 	WebElement searchBtn;
@@ -25,8 +24,8 @@ public class SearchPage extends PageBase{
 	@FindBy(linkText="Apple MacBook Pro")
 	public WebElement productTitle;
 	
-	public void productsearch(String productname) {
-		setTextElementText(searchTxtBox, productname);
+	public void productSearch(String productName) {
+		setTextElementText(searchTextBox, productName);
 		clickButton(searchBtn);
 	}
 	
@@ -35,11 +34,11 @@ public class SearchPage extends PageBase{
 	}
 	
 	public void productSearchUsingAutoSuggest(String searchTxt) {
-		setTextElementText(searchTxtBox, searchTxt);
+		setTextElementText(searchTextBox, searchTxt);
 		try {
-			Thread.sleep(Duration.ofSeconds(3));
+			Thread.sleep(3000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
+            //noinspection CallToPrintStackTrace
 			e.printStackTrace();
 		}
 		productList.get(0).click();

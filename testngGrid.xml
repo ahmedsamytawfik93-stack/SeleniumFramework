@@ -4,7 +4,7 @@
   	<parameter name="browser" value="chrome"/>
     <classes>
       <class name="tests.UserRegistrationTestGrid"/>
-      <class name="tests.MyAccountTestGrid"/>
+      <class name="tests.MyAccountGridTest"/>
     </classes>
   </test>
   <test name="Firefox Regression Test">

@@ -30,8 +30,8 @@ public class TestBase extends AbstractTestNGCucumberTests{
 	
 	public static ChromeOptions chromeOption() {
 		ChromeOptions option = new ChromeOptions();
-		HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-		chromePrefs.put("profile.default.content_settings.popups", 0);
+        HashMap<String, Object> chromePrefs = new HashMap<>();
+        chromePrefs.put("profile.default.content_settings.popups", 0);
 		chromePrefs.put("download.default_directory", downloadsPath);
 		option.setExperimentalOption("prefs", chromePrefs);
 		option.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
@@ -82,7 +82,7 @@ public class TestBase extends AbstractTestNGCucumberTests{
 			driver = new ChromeDriver(chromeOption());
 		} else if(browserName.equalsIgnoreCase("firefox")) {
 			// Set path to your FirefoxDriver
-	        //System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") +"\\Drivers\\geckodriver.exe");
+	        System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") +"/Drivers/geckodriver.exe");
 			driver = new FirefoxDriver(firefoxOption());
 		} else if(browserName.equalsIgnoreCase("edge")) {
 			// Set path to your EdgeDriver
@@ -110,8 +110,6 @@ public class TestBase extends AbstractTestNGCucumberTests{
 		if(result.getStatus() == ITestResult.FAILURE) {
 			System.out.println("Failed \n Taking a screenshot");
 			Helper.captureScreenshot(driver, result.getName());
-		} else {
-			// TODO pass 
 		}
 	}
 	
