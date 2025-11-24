@@ -1,0 +1,11 @@
+# IDE and workspace settings
+.idea/
+.settings/
+
+# Test artifacts
+screenshots/
+allure-results/
+test-output/
+
+# Build output
+target/
