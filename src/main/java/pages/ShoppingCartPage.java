@@ -13,29 +13,14 @@ public class ShoppingCartPage extends PageBase{
 	@FindBy(name="removefromcart")
 	WebElement removeBtn;
 	
-	@FindBy(css="input.qty-input valid")
-	WebElement quantityTxt;
-	
 	@FindBy(css="td.subtotal")
 	public WebElement totalLbl;
-	
-	@FindBy(id="termsofservice")
-	WebElement termsOfServiceCheckBox;
 	
 	@FindBy(id="checkout")
 	WebElement checkoutBtn;
 	
 	public void removeProductFromCart() {
 		clickButton(removeBtn);
-	}
-
-	public void updateProductQuantityInCart(String quantity) {
-		clearText(quantityTxt);
-		setTextElementText(quantityTxt, quantity);
-	}
-	
-	public void checkTermsOfService() {
-		clickButton(termsOfServiceCheckBox);
 	}
 
 	public void openCheckoutPage() {

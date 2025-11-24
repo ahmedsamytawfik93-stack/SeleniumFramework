@@ -18,9 +18,9 @@ public class JsonDataReader {
 		File srcFile = new File(filePath);
 		
 		JSONParser parser = new JSONParser();
-		JSONArray jarray = (JSONArray)parser.parse(new FileReader(srcFile));
+		JSONArray jsonArray = (JSONArray)parser.parse(new FileReader(srcFile));
 		
-		for(Object jsonObj : jarray) {
+		for(Object jsonObj : jsonArray) {
 			JSONObject person = (JSONObject) jsonObj;
 			firstname = (String) person.get("firstname");
 			lastname = (String) person.get("lastname");

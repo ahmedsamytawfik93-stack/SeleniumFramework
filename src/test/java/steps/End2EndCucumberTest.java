@@ -13,7 +13,7 @@ import pages.SearchPage;
 import pages.ShoppingCartPage;
 import tests.TestBase;
 
-public class E2ETests extends TestBase{
+public class End2EndCucumberTest extends TestBase{
 	HomePage homeObject;
 	SearchPage searchObject;
 	ProductDetailsPage productDetails;
@@ -25,13 +25,16 @@ public class E2ETests extends TestBase{
 	@Given("The user in the home page")
 	public void the_user_in_the_home_page() {
 		homeObject = new HomePage(driver);
-		Assert.assertTrue(driver.getCurrentUrl().contains("demo.nopcommerce.com"));
+        String currentUrl = driver.getCurrentUrl();
+        Assert.assertNotNull(currentUrl, "Current URL is null");
+        Assert.assertTrue(currentUrl.contains("demo.nopcommerce.com"));
 	}
 	@When("he searches for {string}")
 	public void he_searches_for(String string) {
 		searchObject = new SearchPage(driver);
 		searchObject.productSearchUsingAutoSuggest(productName);
 		productDetails = new ProductDetailsPage(driver);
+        System.out.println("The Customer searches for"+ string);
 		Assert.assertTrue(productDetails.productNameBreadCrumb.getText().contains(productName));
 	}
 	@When("choose to buy items")
@@ -58,7 +61,9 @@ public class E2ETests extends TestBase{
 	public void he_can_view_the_order_and_download_the_invoice() throws InterruptedException {
 		orderObject = new OrderDetailsPage(driver);
 		checkoutObject.userCanShowConfirmedOrderDetails();
-		Assert.assertTrue(driver.getCurrentUrl().contains("orderdetails"));
+        String currentUrl = driver.getCurrentUrl();
+        Assert.assertNotNull(currentUrl, "Current URL is null");
+        Assert.assertTrue(currentUrl.contains("orderdetails"));
 		orderObject.DownloadPDFInvoice();
 		Thread.sleep(3000);
 		orderObject.PrintOrderDetails();
